@@ -243,3 +243,83 @@ ORDER BY avg_six_point_rate DESC;
 | High volume hunting | Region 4 | Most elk harvested, but low individual odds |
 | Best individual odds | Region 13 | Small exclusive unit, 77.8% success rate |
 | Trophy quality bulls | Regions 40, 42 | 100% six point rate, very few tags issued |
+
+---
+
+## Query 7: Six Point Rate Over Time
+
+**Question:** How have six point or greater harvest rates trended over the 24-year period?
+```sql
+SELECT year,
+    ROUND(AVG(six_point_plus_rate), 2) AS avg_six_point_rate,
+    ROUND(AVG(success_rate), 2) AS avg_success_rate,
+    ROUND(SUM(harvest), 0) AS total_harvest
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY year
+ORDER BY year ASC;
+```
+
+**Why this query:** Including success rate and total harvest alongside the six point rate shows whether all three metrics move together or independently over time.
+
+**Summary:** Six point rates have generally improved from the low 30s in the early 2000s to the high 30s and low 40s in recent years, suggesting Idaho Fish and Game's herd management is successfully allowing more bulls to reach trophy maturity. A notable dip to 27.68% in 2006 stands out — this coincides with a period of significant wolf pack expansion in Idaho, which may have impacted mature bull survival. The peak years of 2015 and 2019 are worth investigating further for any corresponding management changes or favorable habitat conditions.
+
+---
+
+## Query 8: Days Hunted Efficiency
+
+**Question:** Which region gives you the best return on time invested?
+```sql
+SELECT region_unit,
+    ROUND(AVG(days_hunted), 0) AS avg_days_hunted,
+    ROUND(AVG(success_rate), 2) AS avg_success_rate
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY region_unit
+ORDER BY avg_days_hunted ASC;
+```
+
+**Result:**
+
+| Region Unit | Avg Days Hunted | Avg Success Rate | Highlight |
+|-------------|----------------|-----------------|-----------|
+| **41** | **9** | **50.0%** | ⬆️ Most Efficient |
+| 42 | 21 | 20.0% | |
+| 38 | 34 | NULL | |
+| 18 | 41 | 16.70% | |
+| 40 | 56 | 10.5% | |
+| — | — | — | |
+| 39 | 16,348 | 14.02% | |
+| 6 | 20,187 | 16.67% | |
+| 1 | 21,325 | 11.82% | |
+| 10A | 26,036 | 18.29% | |
+| **4** | **35,550** | **10.43%** | ⬇️ Least Efficient |
+
+**Summary:** Region 41 is the standout — hunters average just 9 days with a 50% success rate, making it by far the most efficient unit in the dataset. Region 4, despite being the top producer by total harvest, requires a combined 35,550 hunter days and returns only 10.43% success. More hunters in a unit means more competition and more days spent searching. Popularity does not equal efficiency — for a hunter focused on maximizing their odds relative to time invested, smaller limited entry units offer a dramatically better return.
+
+---
+
+## Query 9: Spike Rate Trends
+
+**Question:** Are younger bulls (spikes) increasing or decreasing as a share of the harvest over time?
+```sql
+SELECT year,
+    ROUND(AVG(spike_rate), 2) AS avg_spike_rate
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY year
+ORDER BY year ASC;
+```
+
+**Summary:** Spike rates have declined steadily from around 32–34% in the early 2000s to 20–22% in recent years. Paired with the rising six point rates from Query 7, this tells a clear and consistent story:
+
+| Metric | Early Years (2001–2005) | Recent Years (2019–2024) |
+|--------|------------------------|--------------------------|
+| Spike rate | ~32–34% | ~20–22% |
+| Six point rate | ~27–31% | ~38–42% |
+
+As spike rates go down, six point rates go up — and 2006 ties it together perfectly, showing the highest spike rate (34.4%) and the lowest six point rate (27.68%) in the same year. That inverse relationship confirms the trend is real and sustained. Fewer young bulls are being harvested, more bulls are surviving long enough to reach trophy maturity, and Idaho Fish and Game's management approach appears to be working over the long term.
+
+---
+
+*For data visualizations of these findings, see [visualizations.md](visualizations.md).*
