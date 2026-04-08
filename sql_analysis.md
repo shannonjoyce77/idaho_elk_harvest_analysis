@@ -89,3 +89,88 @@ FROM (
 **Result:** 12,152 elk per year on average.
 
 **Summary:** 2001 and 2002 were notably low harvest years, possibly reflecting the effects of wolf reintroduction on elk populations during that period. 2005 saw a significant spike, and 2020 produced a surprisingly high harvest year despite being a COVID year — likely because more people turned to outdoor activities when other options were shut down. Excluding the early 2000s, recent years consistently exceed the 24-year average, suggesting improved herd management or increased hunting pressure over time.
+---
+
+## Query 3: Harvest by Region
+
+**Question:** Which regions had the highest and lowest total harvest?
+```sql
+SELECT region_unit, SUM(harvest) AS total_harvest
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY region_unit
+ORDER BY total_harvest DESC;
+```
+
+**Result:**
+
+| Region Unit | Total Harvest | Highlight |
+|-------------|--------------|-----------|
+| **4** | **16,333** | ⬆️ Highest |
+| 10A | 14,944 | |
+| 6 | 13,119 | |
+| 39 | 12,441 | |
+| 1 | 11,153 | |
+| — | — | |
+| 47 | 4 | |
+| 40 | 4 | |
+| 11 | 2 | |
+| 41 | 1 | |
+| 42 | 1 | |
+| **18** | **1** | ⬇️ Lowest |
+
+To filter results by a specific year:
+```sql
+SELECT region_unit, SUM(harvest) AS total_harvest
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+AND year = 2001
+GROUP BY region_unit
+ORDER BY total_harvest DESC;
+```
+
+**Summary:** The top performing units — 4, 10A, 6, 39, and 1 — are largely concentrated in northern Idaho, an area known for dense National Forest land, high elevation, and historically strong elk populations. Region 4 covers the Coeur d'Alene National Forest, Region 1 includes the Selkirk Mountains, and Region 10A sits near a large reservoir. The lowest performing units (18, 40, 41, 42) are managed by the Bureau of Land Management (BLM), which tends to be lower elevation and more arid — less ideal elk habitat than National Forest land. Harvest success strongly correlates with habitat type.
+
+---
+
+## Query 4: Average Success Rate by Region
+
+**Question:** Which region units have the highest and lowest average success rates?
+```sql
+SELECT region_unit, ROUND(AVG(success_rate), 2) AS avg_success_rate
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY region_unit
+ORDER BY avg_success_rate DESC;
+```
+
+**Result:**
+
+| Region Unit | Avg Success Rate | Highlight |
+|-------------|-----------------|-----------|
+| **13** | **77.8%** | ⬆️ Highest |
+| 41 | 50.0% | |
+| 21A | 25.92% | |
+| 30 | 25.21% | |
+| 14 | 24.64% | |
+| — | — | |
+| 71 | 8.9% | |
+| 62A | 8.58% | |
+| 11 | 7.10% | |
+| 2 | 6.86% | |
+| **73A** | **6.85%** | ⬇️ Lowest |
+
+To see hunter numbers and success rates side by side for the top harvest regions:
+```sql
+SELECT region_unit,
+    ROUND(AVG(hunters), 0) AS avg_hunters,
+    ROUND(AVG(success_rate), 2) AS avg_success_rate,
+    ROUND(SUM(harvest), 0) AS total_harvest
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY region_unit
+ORDER BY total_harvest DESC
+LIMIT 10;
+```
+
+**Summary:** Success rate and total harvest tell very different stories. Region 4 leads in total elk harvested but averages around 10% individual success, while Region 13 has a 77.8% success rate with only about 18 hunters on average. The most popular hunting regions are not the most successful ones — hunter competition is a key factor. Region 13 is likely a limited entry unit where tags are restricted by Idaho Fish and Game to protect hunting quality, which would explain both the low hunter numbers and exceptional success rate.
