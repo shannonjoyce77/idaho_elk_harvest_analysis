@@ -158,5 +158,5 @@ WHERE year IS NULL OR take_method IS NULL OR region_unit IS NULL;
 ```sql
 SELECT DISTINCT year FROM elk_harvest ORDER BY year;
 ```
-At this point the data was clean, fully imported, and ready for analysis. See sql_analysis.md for the queries used to answer the project's key questions.
+At this point the data was clean, fully imported, and ready for analysis. See [sql_analysis.md](sql_analysis.md) for the queries used to answer the project's key questions.
 
