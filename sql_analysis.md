@@ -174,3 +174,72 @@ LIMIT 10;
 ```
 
 **Summary:** Success rate and total harvest tell very different stories. Region 4 leads in total elk harvested but averages around 10% individual success, while Region 13 has a 77.8% success rate with only about 18 hunters on average. The most popular hunting regions are not the most successful ones — hunter competition is a key factor. Region 13 is likely a limited entry unit where tags are restricted by Idaho Fish and Game to protect hunting quality, which would explain both the low hunter numbers and exceptional success rate.
+
+---
+
+## Query 5: Success Rate by Take Method
+
+**Question:** Which take method has the highest success rate?
+```sql
+SELECT take_method,
+    ROUND(AVG(success_rate), 2) AS avg_success_rate,
+    ROUND(AVG(hunters), 0) AS avg_hunters,
+    ROUND(SUM(harvest), 0) AS total_harvest
+FROM elk_harvest
+WHERE take_method != 'All Weapons Combined'
+GROUP BY take_method
+ORDER BY avg_success_rate DESC;
+```
+
+**Note:** The `!=` operator excludes `All Weapons Combined` so we are comparing only the individual weapon types: Archery, Any Weapon, and Muzzleloader.
+
+**Result:**
+
+| Take Method | Avg Success Rate | Avg Hunters | Total Harvest | Highlight |
+|-------------|-----------------|-------------|---------------|-----------|
+| **Muzzleloader** | **20.58%** | 105 | 20,384 | ⬆️ Highest Success Rate |
+| Any Weapon | 17.60% | 595 | 198,538 | ⬆️ Highest Total Harvest |
+| **Archery** | **14.54%** | 269 | 74,000 | ⬇️ Lowest Success Rate |
+
+**Summary:** Muzzleloader hunters achieve the highest success rate despite using the most technically challenging equipment. This is likely due to two factors: muzzleloader seasons often fall during the elk rut when bulls are more active and visible, and the hunter pool tends to skew toward more experienced individuals. Any Weapon seasons draw the most hunters and the highest total harvest, but individual odds are lower due to competition. Archery, while requiring close-range skill, draws a dedicated community but yields the lowest individual success rate.
+
+---
+
+## Query 6: Six Point Rate by Region
+
+**Question:** Which region units have the highest and lowest average rates of six point or greater bulls harvested?
+```sql
+SELECT region_unit,
+    ROUND(AVG(six_point_plus_rate), 2) AS avg_six_point_rate,
+    ROUND(AVG(hunters), 0) AS avg_hunters,
+    ROUND(AVG(success_rate), 2) AS avg_success_rate
+FROM elk_harvest
+WHERE take_method = 'All Weapons Combined'
+GROUP BY region_unit
+ORDER BY avg_six_point_rate DESC;
+```
+
+**Why this query:** Including `avg_hunters` and `avg_success_rate` alongside the six point rate gives a fuller picture of each unit in a single query.
+
+**Result:**
+
+| Region Unit | Avg Six Point Rate | Avg Hunters | Avg Success Rate | Highlight |
+|-------------|-------------------|-------------|-----------------|-----------|
+| **42** | **100%** | 3 | 20.00 | ⬆️ Highest |
+| **40** | **100%** | 14 | 10.50 | ⬆️ Highest |
+| **54** | **100%** | 121 | 8.99 | ⬆️ Highest |
+| 70 | 72.34% | 204 | 9.31 | |
+| 73A | 71.08% | 124 | 6.85 | |
+| — | — | — | — | |
+| 3 | 17.51% | 2672 | 10.62 | |
+| 21A | 16.81% | 689 | 25.92 | |
+| 10A | 15.32% | 3437 | 18.29 | |
+| **5** | **9.8%** | 1666 | 16.29 | ⬇️ Lowest |
+
+**Summary:** This result reframes the earlier finding about BLM-managed units. Regions 40 and 42 had among the lowest total harvests, which initially suggested poor elk habitat — but their 100% six point rates tell a different story. These are almost certainly limited entry trophy units where very few tags are issued. If you do harvest, it is a trophy bull. Idaho elk units fall into three distinct categories:
+
+| Region Type | Example | Strategy |
+|-------------|---------|----------|
+| High volume hunting | Region 4 | Most elk harvested, but low individual odds |
+| Best individual odds | Region 13 | Small exclusive unit, 77.8% success rate |
+| Trophy quality bulls | Regions 40, 42 | 100% six point rate, very few tags issued |
