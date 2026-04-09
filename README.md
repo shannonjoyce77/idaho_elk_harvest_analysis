@@ -10,7 +10,8 @@
 - Summary of Findings
 - Repository Structure
 
-  This project analyzes elk harvest data from the Idaho Department of Fish and Game spanning 2001 to 2024. With 24 years of data across multiple hunting units, seasons, and harvest methods, the dataset offered a rich opportunity to identify long-term trends and regional differences in elk hunting success.
+This project analyzes elk harvest data from the Idaho Department of Fish and Game spanning from 2001 to 2024. With 24 years of data across multiple hunting units, seasons, and harvest methods, the dataset offered a rich opportunity to identify long-term trends and regional differences in elk hunting success.
+
 The analysis focuses on harvest rates over time, the performance of individual hunting units, shifts in the age of elk being harvested, and how different hunting methods and seasons compare in terms of success. The broader aim is to surface patterns that could inform wildlife management decisions and help hunters make smarter choices about where and how they hunt.
 
 ## Key Questions: 
@@ -32,9 +33,13 @@ When factoring in both days invested and success rate, which hunting units offer
 
 ## Summary of Findings: 
 Harvest Trends Over Time:
-Top Performing Hunting Units: 
+
+Top Performing Hunting Units:
+
 Shifts in Harvest Composition: 
+
 Most Successful Harvest Methods: 
+
 Best Units by Effort-to-Success Ratio: 
 
 Data sourced from the Idaho Department of Fish and Game. See works_cited.md for full attribution.
