@@ -13,6 +13,8 @@ All visualizations were created in Tableau and are published on Tableau Public. 
 - [Spike and Six Point Harvest Trends 2001–2024](#visual-5-spike-and-six-point-harvest-trends-20012024)
 - [Hunt Efficiency - Time Spent and Region Unit](#visual-6-hunt-efficiency---time-spent-and-region-unit)
 
+---
+
 ## Visual 1: Total Elk Harvested 2001-2024
 *Line Graph*
 
