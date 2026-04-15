@@ -48,6 +48,9 @@ Northern Idaho dominates elk harvest totals, likely due to larger herd sizes and
 
 🔗 **[View Interactive Version on Tableau Public](https://public.tableau.com/app/profile/shannon.joyce5716/vizzes)**
 
+**What it Shows:** This map uses warm tones (reds and oranges) to highlight units with the highest average six point or greater harvest rates, and cool tones for lower rates. It is designed as a practical tool, hunters can look at this map and immediately identify where they have the highest odds of harvesting a trophy bull. Higher six-point success rates are concentrated in southern Idaho, while northern regions show lower trophy success rates. In comparison with the previous map, Where Are Idaho’s Elk Being Harvested?, the results are almost flipped. Northern Idaho, which dominates in total harvest numbers, does not dominate in trophy bull rates. The southwestern corner of the state actually has the highest six point success rates, including 100% in a couple of units. This is likely because those units are managed by a government agency with very restricted tag numbers. Very few elk are harvested there, but when they are, they are almost always trophy quality bulls.
+
+**Key Takeaway:** High harvest volume and high trophy quality do not always go hand in hand. Hunters who are looking to stock the freezer and don't have a preference on trophy quality may prefer hunting in the North as there is a higher chance of getting a harvest, trophy or not. Hunters chasing a trophy bull should look south. This map tells a completely different story than the harvest map and highlights the importance of knowing what kind of hunt you are after before choosing a unit.
 
 ---
 
@@ -56,6 +59,9 @@ Northern Idaho dominates elk harvest totals, likely due to larger herd sizes and
 
 🔗 **[View Interactive Version on Tableau Public](https://public.tableau.com/app/profile/shannon.joyce5716/vizzes)**
 
+**What it Shows:** This bar chart compares the average success rates of Idaho's three elk hunting season types: Archery, Any Weapon, and Muzzleloader. Muzzleloader, a technically difficult method, produces the highest individual success rate despite having the fewest hunters. Any Weapon draws the most hunters and the highest total harvest but sits in the middle for individual success. Archery, which requires close range skill and patience, posts the lowest success rate.
+
+**Key Takeaway:** Muzzleloader seasons often fall during the elk rut when bulls are more active and visible. This finding reinforces a theme that runs throughout this entire analysis, more hunters means more competition, and more competition means lower individual odds. 
 
 ---
 
@@ -64,6 +70,9 @@ Northern Idaho dominates elk harvest totals, likely due to larger herd sizes and
 
 🔗 **[View Interactive Version on Tableau Public](https://public.tableau.com/app/profile/shannon.joyce5716/vizzes)**
 
+**What it Shows:** This dual line graph tracks two metrics simultaneously over 24 years, the average spike harvest rate (yellow) and the average six point or greater harvest rate (green). The two lines move in opposite directions over time, forming a clear inverse relationship. The data shows a decline in spike harvest rates alongside a steady increase in six-point harvest rates.
+
+**Key Takeaway:** Fewer young bulls are being harvested and more bulls are surviving long enough to reach trophy maturity. Whether this is due to hunters becoming more selective, improved herd management, or a combination of both, the trend is clear. Idaho Fish and Game's wildlife management practices appear to be having a measurable positive impact on long term herd quality.
 
 ---
 
@@ -72,6 +81,11 @@ Northern Idaho dominates elk harvest totals, likely due to larger herd sizes and
 
 🔗 **[View Interactive Version on Tableau Public](https://public.tableau.com/app/profile/shannon.joyce5716/vizzes)**
 
+**What it Shows:** This scatter plot places every hunting unit on a grid comparing average days hunted against average success rate. Each dot represents a different region unit. Units in the upper left corner are the most efficient, high success rates with fewer days invested. Units in the lower right are the least efficient, low success rates despite heavy time investment.
+
+Region 41 is the clear standout, sitting in the upper left with just 9 average days hunted and a 50% success rate; it is by far the most efficient unit in the dataset. It is worth noting however that Region 41 has a combined total harvest of only 1 elk, strongly suggesting it is a highly restricted limited entry unit. Region 4 sits at the opposite end, hunters collectively spend 35,550 days hunting there but only succeed 10.43% of the time.
+
+**Key Takeaway:** Popularity does not equal efficiency. The most heavily hunted units in Idaho produce some of the lowest individual success rates, while smaller restricted units offer dramatically better returns on time invested. For a hunter focused on maximizing their odds relative to effort, this scatter plot can be used to gauge where they should be hunting at.
 
 
 ----
