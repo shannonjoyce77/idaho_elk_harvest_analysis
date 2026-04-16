@@ -101,6 +101,6 @@ Region 41 is the clear standout, sitting in the upper left with just 9 average d
 
 
 ----
-*Data Sourced from the 
+*Data Sourced from the [Idaho Department of Fish and Game](https://idfg.idaho.gov) See [works_cited.md](works_cited.md) for full attribution.*
 
 
