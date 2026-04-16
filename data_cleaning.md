@@ -2,14 +2,14 @@
 This document walks through the full data cleaning process for the Idaho Elk Harvest Analysis project, from raw CSV files to a clean, analysis-ready table in MySQL.
 
 ## Table of Contents 
-- Step 1: Google Sheets — Compiling and Preparing the Data
-- Step 2: Importing Data into MySQL
-- Step 3: Replacing Blank Entries with NULL
-- Step 4: Checking for Remaining Nulls
-- Step 5: Modifying Column Data Types
-- Step 6: Fixing the Import — Loading Data via Terminal
-- Step 7: Verifying the Import
-- Step 8: Final Cleaning and Validation
+- [Step 1: Google Sheets - Compiling and Preparing Data](#step-1-google-sheets---compiling-and-preparing-data)
+- [Step 2: Adding a Primary Key](#step-2-adding-a-primary-key)
+- [Step 3: Replacing Blank Entries with NULL](#step-3-replacing-blank-entries-with-null)
+- [Step 4: Checking for Remaining Nulls](#step-4-checking-for-remaining-nulls)
+- [Step 5: Modifying Column Data Types](#step-5-modifying-column-data-types)
+- [Step 6: Fixing the Import — Loading Data via Terminal](#step-6-fixing-the-import-loading-data-via-terminal)
+- [Step 7: Verifying the Import](#step-7-verifying-the-import)
+- [Step 8: Final Cleaning and Validation](#step-8-final-cleaning-and-validation)
 
 ## Step 1: Google Sheets - Compiling and Preparing Data 
 The raw data from the Idaho Department of Fish and Game was supplied as individual CSV files, one per year. Before bringing the data into SQL, I handled some foundational prep work in Google Sheets:
@@ -158,5 +158,6 @@ WHERE year IS NULL OR take_method IS NULL OR region_unit IS NULL;
 ```sql
 SELECT DISTINCT year FROM elk_harvest ORDER BY year;
 ```
-At this point the data was clean, fully imported, and ready for analysis. See [sql_analysis.md](sql_analysis.md) for the queries used to answer the project's key questions.
+At this point the data was clean, fully imported, and ready for analysis. 
+See [sql_analysis.md](sql_analysis.md) for the queries used to answer the project's key questions.
 
