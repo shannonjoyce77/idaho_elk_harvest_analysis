@@ -89,6 +89,7 @@ FROM (
 **Result:** 12,152 elk per year on average.
 
 **Summary:** 2001 and 2002 were notably low harvest years, possibly reflecting the effects of wolf reintroduction on elk populations during that period. 2005 saw a significant spike, and 2020 produced a surprisingly high harvest year despite being a COVID year, likely because more people turned to outdoor activities when other options were shut down. Excluding the early 2000s, recent years consistently exceed the 24-year average, suggesting improved herd management or increased hunting pressure over time.
+
 **See how this data looks over time:** [Total Elk Harvested 2001–2024](visualizations.md#visual-1-total-elk-harvested-20012024) 
 
 ---
@@ -132,6 +133,7 @@ ORDER BY total_harvest DESC;
 ```
 
 **Summary:** The top performing units (4, 10A, 6, 39, and 1) are largely concentrated in northern Idaho, an area known for dense National Forest land, high elevation, and historically strong elk populations. Region 4 covers the Coeur d'Alene National Forest, Region 1 includes the Selkirk Mountains, and Region 10A sits near a large reservoir. The lowest performing units (18, 40, 41, 42) are managed by the Bureau of Land Management (BLM), which tends to be lower elevation and more arid — less ideal elk habitat than National Forest land. Harvest success strongly correlates with habitat type.
+
 **See how this data looks geographically:** [Where Are Idaho's Elk Being Harvested?](visualizations.md#visual-2-where-are-idahos-elk-being-harvested)
 
 ---
@@ -205,6 +207,7 @@ ORDER BY avg_success_rate DESC;
 | **Archery** | **14.54%** | 269 | 74,000 | ⬇️ Lowest Success Rate |
 
 **Summary:** Muzzleloader hunters achieve the highest success rate despite using technically challenging equipment. This is likely due to two factors: muzzleloader seasons often fall during the elk rut when bulls are more active and visible, and the hunter pool tends to skew toward more experienced individuals. Any Weapon seasons draw the most hunters and the highest total harvest, but individual odds are lower due to competition. Archery, while requiring close-range skill, draws a dedicated community but yields the lowest individual success rate.
+
 **See how this data looks visually:** [Take Method Success Rates](visualizations.md#visual-4-take-method-success-rates)
 
 ---
@@ -269,6 +272,7 @@ ORDER BY year ASC;
 **Why this query:** Including success rate and total harvest alongside the six point rate shows whether all three metrics move together or independently over time.
 
 **Summary:** Six point rates have generally improved from the low 30s in the early 2000s to the high 30s and low 40s in recent years, suggesting Idaho Fish and Game's herd management is successfully allowing more bulls to reach trophy maturity. A notable dip to 27.68% in 2006 stands out. This coincides with a period of significant wolf pack expansion in Idaho, which may have impacted mature bull survival. The peak years of 2015 and 2019 are worth investigating further for any corresponding management changes or favorable habitat conditions.
+
 **See how these trends look over time:** [Spike and Six Point Harvest Trends 2001–2024](visualizations.md#visual-5-spike-and-six-point-harvest-trends-20012024)
 
 ---
@@ -303,6 +307,7 @@ ORDER BY avg_days_hunted ASC;
 | **4** | **35,550** | **10.43%** | ⬇️ Least Efficient |
 
 **Summary:** Region 41 is the standout. Hunters average just 9 days with a 50% success rate, making it by far the most efficient unit in the dataset. Region 4, despite being the top producer by total harvest, requires a combined 35,550 hunter days and returns only 10.43% success. More hunters in a unit means more competition and more days spent searching. Popularity does not equal efficiency. For a hunter focused on maximizing their odds relative to time invested, smaller limited entry units offer a dramatically better return.
+
 **See how this data looks visually:** [Hunt Efficiency - Time Spent and Region Unit](visualizations.md#visual-6-hunt-efficiency---time-spent-and-region-unit)
 
 ---
@@ -327,6 +332,7 @@ ORDER BY year ASC;
 | Six point rate | ~27–31% | ~38–42% |
 
 As spike rates go down, six point rates go up, and 2006 ties it together perfectly, showing the highest spike rate (34.4%) and the lowest six point rate (27.68%) in the same year. That inverse relationship confirms the trend is real and sustained. Fewer young bulls are being harvested, more bulls are surviving long enough to reach trophy maturity, and Idaho Fish and Game's management approach appears to be working over the long term.
+
 **See how these trends look over time:** [Spike and Six Point Harvest Trends 2001–2024](visualizations.md#visual-5-spike-and-six-point-harvest-trends-20012024)
 
 ---
