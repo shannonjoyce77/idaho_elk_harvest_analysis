@@ -18,6 +18,8 @@ This project analyzes elk harvest data from the Idaho Department of Fish and Gam
 
 The analysis focuses on harvest rates over time, the performance of individual hunting units, shifts in the age of elk being harvested, and how different hunting methods and seasons compare in terms of success. The broader aim is to surface patterns that could inform wildlife management decisions and help hunters make smarter choices about where and how they hunt.
 
+---
+
 ## Key Questions: 
 
 How have elk harvest rates changed over time (2001–2024)?
@@ -30,10 +32,14 @@ Which take method or season type yields the highest success rates?
 
 When factoring in both days invested and success rate, which hunting units offer the best return on effort?
 
+---
+
 ## Tools Used: 
 - Google Sheets - Initial data handling and light cleaning
 - MySQL - Data cleaning, transformation, and analysis
 - Tableau - Data visualization and dashboard creation
+
+---
 
 ## Summary of Findings
 
@@ -46,6 +52,8 @@ When factoring in both days invested and success rate, which hunting units offer
 **Most Successful Harvest Methods:** Muzzleloader seasons produce the highest individual success rate at 20.58% despite having the fewest hunters, likely due to favorable season timing during the elk rut and a smaller hunter pool. Any Weapon seasons draw the most participants and the highest total harvest but sit in the middle for individual success, confirming that more hunters means more competition and lower individual odds.
 
 **Best Units by Effort-to-Success Ratio:** Region 41 is the standout, hunters average just 9 days with a 50% success rate, making it the most efficient unit in the dataset. Region 4, despite leading in total harvest, requires a combined 35,550 hunter days and returns only 10.43% individual success. Popularity does not equal efficiency.
+
+---
 
 ## Repository Structure
 ```
